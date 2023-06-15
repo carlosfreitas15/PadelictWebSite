@@ -1,0 +1,111 @@
+﻿@model PadelictWebSite.Models.Login
+@{
+    ViewBag.Title = "registaratleta";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Login</title>
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<style>
+    body {
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background-image: url(../Images/fundo_preto.png);
+        min-height: 100vh;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .boody-content-btn {
+        margin: auto;
+        width: 456px;
+        align-items: center;
+        padding-bottom: 12px;
+        padding-top: 24px;
+        height: 567px;
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+    }
+
+    .form-label {
+        color: #927614;
+    }
+
+    .text {
+        color: #927614;
+        margin-left: 45px;
+        text-decoration: none;
+    }
+
+        .text:hover {
+            color: #927614;
+        }
+    .label {
+        color: #927614;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="boody-content-btn rounded-5">
+            <a href="~/Utilizador/Registo">
+                <div style="display: inline-block; position: relative;">
+                    <div style="position: absolute; top: 50%; left: 23px;">
+                        <span style="transform: translateY(-50%); display: inline-block; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-right: 30px solid #927614;"></span>
+                    </div>
+
+
+                </div>
+            </a>
+
+            <div class="mb-5 text-center">
+                <img src="~/Images/logo_branco.png" class="mx-5">
+
+            </div>
+            @using (Html.BeginForm("Perfil", "Avaliacao", FormMethod.Post, new
+            { enctype = "multipart/form-data", style = "margin-top:5%" }))
+            {
+                @Html.AntiForgeryToken()
+
+
+
+            <div class="mb-2 mx-5">
+               <label class="label-name">Email</label>
+                @Html.TextBoxFor(m => m.Email, new { @class = "form-control", @placeholder = "Email", })
+
+
+            </div>
+            <div class="mb-4 mx-5">
+                <label class="label-name">Email</label>
+                @Html.TextBoxFor(m => m.Password, new { @class = "form-control", @placeholder = "Password", @type="Password"})
+
+            </div>
+                <div class="mb-4 mx-5">
+                    <button class="btn  btn-lg text-center w-100 text-light" style="background-color: #927614; border-radius:50px;">Login</button>
+
+                </div>
+
+
+
+
+            }
+
+
+
+        </div>
+
+    </div>
+</body>
+</html>

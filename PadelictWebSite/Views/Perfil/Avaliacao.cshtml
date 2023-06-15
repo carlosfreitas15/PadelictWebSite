@@ -1,0 +1,183 @@
+﻿@model PadelictWebSite.Models.Avaliacao
+@{
+    ViewBag.Title = "Avaliacao";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clube</title>
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<style>
+    body {
+        background-image: url(../Images/fundo_preto.png);
+        min-height: 100vh;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .form {
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        padding: 56px;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+
+    input[type="text"] {
+        margin-top: 5px;
+    }
+
+    input[type="email"] {
+        margin-top: 5px;
+    }
+
+    label {
+        color: #927614;
+    }
+
+    .text {
+        color: #927614;
+        margin-left: 23px;
+        text-decoration: none;
+    }
+
+        .text:hover {
+            color: #927614;
+        }
+        .form-control{
+            margin-top: 4px;
+        }
+        .ddd{
+            color: red;
+            font-size: 16px;
+        }
+    .mybutton {
+        color: #927614;
+    }
+</style>
+<body>
+    <div class="form">
+        <div class="container">
+
+
+
+            <a href="~/Perfil/Perfil">
+                <div style="display: inline-block; position: relative;">
+                    <div style="position: absolute; top: 50%; left: 0;">
+                        <span style="transform: translateY(-50%); display: inline-block; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-right: 30px solid #927614;"></span>
+                    </div>
+
+
+                </div>
+            </a>
+            <div class="mb-3 text-center">
+                <img src="~/Images/logo_branco.png">
+
+            </div>
+
+            @using (Html.BeginForm("Avaliacao", "Perfil", FormMethod.Post, new
+            { enctype = "multipart/form-data", style = "margin-top:5%" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationMessage("", new { @class = "ddd" })
+
+
+                <div class="text-center fw-bold display-6" style="color: #927614;">Registo dos dados do Clube</div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2 mt-3">
+                            <h5 class="text-lead text-center" style="color:#927614;">Local onde vai realizar a avaliação</h5>
+                            @Html.TextBoxFor(model => model.LocalidadeAvalia, new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.LocalidadeAvalia, null, new { @class = "ddd" })
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2 mt-3">
+                            <h5 class="text-lead text-center" style="color:#927614;">Clube onde vai realizar a avaliação</h5>
+                            @Html.TextBoxFor(model => model.ClubeAvalia, new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.LocalidadeAvalia, null, new { @class = "ddd" })
+                    </div>
+
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2 mt-3">
+                            <h5 class="text-lead text-center" style="color:#927614;">Treinador que vai realizar a avaliação</h5>
+                            @Html.TextBoxFor(model => model.TreinadorAvalia, new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.TreinadorAvalia, null, new { @class = "ddd" })
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2 mt-3">
+                            <h5 class="text-lead text-center" style="color:#927614;">Dia em que vai realizar a avaliação</h5>
+                            @Html.TextBoxFor(model => model.DiaAvalia, new { @class = "form-control", @type = "date" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.DiaAvalia, null, new { @class = "ddd" })
+                    </div>
+                </div>
+
+              
+
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2 mt-3">
+                            <h5 class="text-lead text-center" style="color:#927614;">Em que hora que vai realizar a avaliação</h5>
+                            @Html.TextBoxFor(model => model.HoraAvalia, new { @class = "form-control", @type = "time" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.HoraAvalia, null, new { @class = "ddd" })
+                    </div>
+                
+                
+                    <div class="col-md-6">
+                        <div class="form-group mb-2 mt-3">
+                            <h5 class="text-lead text-center" style="color:#927614;">Modo de notificação onde vai receber as informações </h5>
+                            @Html.DropDownListFor(model => model.ModoNotifica, (SelectList)ViewBag.ModoNotifica1, "Modo de Notificação para receber a confirmação do registo de avaliação", new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ModoNotifica, null, new { @class = "ddd" })
+                    </div>
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+                <div class="mb-4 mx-5 mt-5">
+                    <button class="btn  btn-lg text-center w-100 text-light" style="background-color: #927614; border-radius:50px;">Pedir Avaliação</button>
+
+                </div>
+            }
+
+
+        </div>
+
+
+
+
+
+
+
+
+    </div>
+</body>
+</html>
+
+

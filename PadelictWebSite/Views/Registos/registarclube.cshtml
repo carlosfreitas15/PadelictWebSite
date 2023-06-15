@@ -1,0 +1,228 @@
+﻿@model PadelictWebSite.Models.registos
+@{
+    /**/
+
+    ViewBag.Title = "registarclube";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Atleta</title>
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<style>
+    body {
+        background-image: url(../Images/fundo_preto.png);
+        min-height: 100vh;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .form {
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+        padding: 56px;
+        width: 100%;
+        height: 100%;
+        margin: auto;
+    }
+
+    input[type="text"] {
+        margin-top: 5px;
+    }
+
+    input[type="email"] {
+        margin-top: 5px;
+    }
+
+    label {
+        color: #927614;
+    }
+
+    .text {
+        color: #927614;
+        margin-left: 23px;
+        text-decoration: none;
+    }
+
+        .text:hover {
+            color: #927614;
+        }
+
+   
+
+    .label-name {
+        align-items: center;
+        text-align: start;
+    }
+
+    .ddd {
+        color: red;
+        font-size: 16px;
+    }
+</style>
+<body>
+
+
+
+    <div class="container">
+        <div class="form">
+            <a href="~/Home/Index">
+                <div style="display: inline-block; position: relative;">
+                    <div style="position: absolute; top: 50%; left: 0;">
+                        <span style="transform: translateY(-50%); display: inline-block; width: 0; height: 0; border-top: 20px solid transparent; border-bottom: 20px solid transparent; border-right: 30px solid #927614;"></span>
+                    </div>
+
+
+                </div>
+            </a>
+            <div class="mb-3 text-center">
+                <img src="~/Images/logo_branco.png" />
+            </div>
+
+
+
+
+            @using (Html.BeginForm("registarclube", "Registos", FormMethod.Post, new
+            { enctype = "multipart/form-data", style = "margin-top:5%" }))
+            {
+                @Html.AntiForgeryToken()
+
+                @Html.ValidationMessage("", new { @class = "ddd" })
+
+                <div class="text-center fw-bold display-6" style="color: #927614;">Registo dos dados do Clube</div>
+                <div class="row mt-2">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            <label class="label-name ">Email</label>
+                            @Html.TextBoxFor(model => model.Email, new { @class = "form-control" })
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.Email, null, new { @class = "ddd" })
+                    </div>
+                    <div class="col-md-6 ">
+                        <div class="form-group">
+                            <label class="label-name ">Password</label>
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type="password" })
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.Password, null, new { @class = "ddd" })
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label class="label-name ">Confirmar Password</label>
+                            @Html.TextBoxFor(model => model.Password, new { @class = "form-control", @type = "password" })
+                        </div>
+
+                        @Html.ValidationMessageFor(model => model.Password, null, new { @class = "ddd" })
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                           <label class="label-name ">Nome do Clube</label>
+                            @Html.TextBoxFor(model => model.NomeClube, new { @class = "form-control"})
+                        </div>
+                        @Html.ValidationMessageFor(model => model.NomeClube, null, new { @class = "ddd" })
+                    </div>
+                </div>
+                <div class="row">
+
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label class="label-name ">Localidade</label>
+                            @Html.DropDownListFor(model => model.Localidade, (SelectList)ViewBag.ConcelhosList, new { @class = "form-control"})
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Localidade, null, new { @class = "ddd" })
+                    </div>
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label class="label-name ">Contacto</label>
+                            @Html.TextBoxFor(model => model.Contacto, new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.Contacto, null, new { @class = "ddd" })
+                    </div>
+
+                </div>
+               
+                <div class="row">
+                    <div class="col-md-6">
+                        <div class="form-group mb-2">
+                            <label class="label-name ">Número de Courts</label>
+                            @Html.DropDownListFor(model => model.NumCourts, (SelectList)ViewBag.Numerario, "Selecione o número de courts no clube", new { @class = "form-control"})
+                        </div>
+                        @Html.ValidationMessageFor(model => model.NumCourts, null, new { @class = "ddd" })
+                    </div>
+
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+
+                            <label class="label-name ">Número de Treinadores/as</label>
+                            @Html.DropDownListFor(model => model.NumTreinadores, (SelectList)ViewBag.Numerario, "Selecione o número de treinadores no clube", new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.NumTreinadores, null, new { @class = "ddd" })
+                    </div>
+                </div>
+
+
+                <div class="row">
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label class="label-name ">Número de Alunos/as</label>
+                            @Html.DropDownListFor(model => model.NumAlunos, (SelectList)ViewBag.Numerario, "Selecione o número de alunos no clube", new { @class = "form-control" })
+                        </div>
+                        @Html.ValidationMessageFor(model => model.NumAlunos, null, new { @class = "ddd" })
+                    </div>
+                    <div class="col-md-6 mb-2">
+                        <div class="form-group">
+                            <label class="label-name ">Zona de Ação</label>
+                            @Html.DropDownListFor(model => model.ZonaAcao, (SelectList)ViewBag.ConcelhosList, "Selecione a sua zona de ação", new { @class = "form-control",})
+                        </div>
+                        @Html.ValidationMessageFor(model => model.ZonaAcao, null, new { @class = "ddd" })
+                    </div>
+
+
+                </div>
+
+
+
+               
+                
+            
+              
+
+
+
+                <div class="mb-4 mx-5 mt-5">
+                    <button class="btn  btn-lg text-center w-100 text-light" style="background-color: #927614; border-radius:50px;">Confirmar Registo</button>
+
+                </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+            }
+        </div>
+    </div>
+
+
+
+</body>
+</html>

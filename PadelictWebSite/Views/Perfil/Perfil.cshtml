@@ -1,0 +1,99 @@
+﻿
+@{
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+@{
+    ViewBag.Title = "Perfil";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Index</title>
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+
+</head>
+<style>
+    body {
+        height: 100vh;
+        justify-content: center;
+        align-items: center;
+        display: flex;
+        background-image: url(../Images/fundo_preto.png);
+        min-height: 100vh;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+    }
+
+    .boody-content-btn {
+        margin: auto;
+        width: 456px;
+        align-items: center;
+        padding-bottom: 12px;
+        padding-top: 24px;
+        height: 567px;
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+    }
+
+    .mybutton {
+        background-color: #927614;
+        border-radius: 50px;
+        font-size: 25px;
+        margin-top: 32px;
+    }
+        .mybutton:hover {
+            background-color: #927614;
+        }
+
+    .imagem {
+        align-items: center;
+        display: block;
+    }
+</style>
+<body>
+    <div class="container">
+        <div class="boody-content-btn rounded-5">
+            <div class="text-left">
+
+            </div>
+            <div class="mb-5 text-center">
+                <img src="~/Images/logo_branco.png">
+
+            </div>
+
+            <div class="mb-5 mx-3">
+
+                @Html.ActionLink("Pedir Avaliaçao", "Avaliacao"
+               , "Perfil", null, new { @class = "btn btn-lg text-center w-100 text-light mybutton mt-4" })
+
+
+            </div>
+            <div class="mb-5 mx-3">
+
+
+                @Html.ActionLink("Editar Perfil", "Editar"
+               , "Perfil", null, new { @class = "btn btn-lg text-center w-100 text-light mybutton mt-4" })
+
+
+            </div>
+
+
+        </div>
+
+    </div>
+</body>
+</html>
+
+
+
+

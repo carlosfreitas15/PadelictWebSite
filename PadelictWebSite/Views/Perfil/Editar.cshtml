@@ -1,0 +1,115 @@
+﻿
+@{
+    ViewBag.Title = "Editar";
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Clube</title>
+    <link type="text/css" href="~/Content/bootstrap.min.css" rel="stylesheet" />
+    <script type="text/javascript" src="~/Scripts/bootstrap.min.js"></script>
+    <script type="text/javascript" src="~/Scripts/jquery-1.10.2.min.js"></script>
+</head>
+<style>
+    body {
+        background-image: url(../Images/fundo_preto.png);
+        min-height: 100vh;
+        position: relative;
+        background-size: cover;
+        background-position: center;
+        background-attachment: fixed;
+        color: #927614;
+    }
+    .card{
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+    }
+    .navbar {
+       
+        color: #927614;
+        background-color: transparent;
+        backdrop-filter: blur(5px);
+    }
+    .nav-link {
+        color: #927614;
+    }
+    .mybutton{
+        border-radius: 50px;
+
+    }
+        .mybutton:hover {
+            color: #927614;
+        }
+   p{
+       color: white;
+   }
+   
+
+    
+</style>
+<body>
+
+
+    <nav class="navbar navbar-expand-lg rounded-5 mt-3">
+        <div class="container">
+            <img  src="~/Images/logo_branco.png" width="100px" class="d-block"/>
+         
+           
+                <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+
+                    <div class="dropdown">
+                        <a class="btn btn-secondary dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown" aria-expanded="true">
+                            Dropdown link
+                        </a>
+
+                        <ul class="dropdown-menu">
+                            <li><a class="dropdown-item" href="#">Action</a></li>
+                            <li><a class="dropdown-item" href="#">Another action</a></li>
+                            <li><a class="dropdown-item" href="#">Something else here</a></li>
+                        </ul>
+                    </div>
+                   
+                    
+                
+                </ul>
+        </div>
+    </nav>
+
+    
+        <div class="card mt-4 rounded-5" style="color:#927614;">
+            <div class="card-body ">
+               <h2 class="text-center display-6" style="color:#927614;">Perfil do Utilizador</h2>
+               <div class="row mt-5 text-center">
+                   <div class="col-xl-4 col-md-6">
+                       <h3>Peso</h3>
+                       <p>34Kg</p>
+                   </div>
+                   <div class="col-xl-4 col-md-6">
+                       <h3>Altura</h3>
+                       <p>34Kg</p>
+                   </div>
+                   <div class="col-xl-4 col-md-6">
+                       <h3>Idade</h3>
+                       <p>34Kg</p>
+                   </div>
+                   <div class="col-xl-4 col-md-6">
+                       <h3>Idade</h3>
+                       <p>34Kg</p>
+                   </div>
+                   <div class="col-xl-4 col-md-6">
+                       <h3>Idade</h3>
+                       <p>34Kg</p>
+                   </div>
+               </div>
+                <button type="submit" class="btn btn-lg w-100 mt-4 text-light mybutton" style="background-color: #927614; border-radius:50px;" >Atualizar perfil</button>
+
+            </div>
+        </div>
+    
+
+
+</body>
+</html>
